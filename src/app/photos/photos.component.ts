@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { DataStorageService } from '../data-storage.service';
 
@@ -9,6 +10,7 @@ import { DataStorageService } from '../data-storage.service';
 export class PhotosComponent implements OnInit {
   public photos: any;
   public isLoading = false;
+  public message = 'Something went wrong!!!';
 
   constructor(private service: DataStorageService) {}
 
@@ -21,7 +23,7 @@ export class PhotosComponent implements OnInit {
     this.service.fetchPhotos().subscribe({
       next: async (resData: any) => {
         if (!resData) {
-          const alert = 1;
+          this.onAlert();
         } else {
           this.isLoading = false;
           this.photos = resData.message;
@@ -35,5 +37,9 @@ export class PhotosComponent implements OnInit {
 
       complete: () => {},
     });
+  }
+  onAlert() {
+    alert(this.message);
+    this.isLoading = false;
   }
 }
