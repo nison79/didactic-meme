@@ -1,0 +1,16 @@
+.container {
+    display: grid; 
+    place-items: center;
+    grid-template-columns:  1fr 1fr; 
+    grid-template-rows:  1fr 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      ". ."
+      ". ."
+   
+  }
+
+  img {
+    width:400px;
+    object-fit: cover;
+}

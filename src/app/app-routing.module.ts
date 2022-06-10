@@ -5,8 +5,10 @@ import { SinglePhotoComponent } from './favorites/single-photo/single-photo.comp
 import { PhotosComponent } from './photos/photos.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/photos', pathMatch: 'full' },
   {
-    path: '',
+    path: 'photos',
+    pathMatch: 'full',
     component: PhotosComponent,
   },
   {
@@ -20,7 +22,6 @@ const routes: Routes = [
 ];
 
 @NgModule({
- 
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
