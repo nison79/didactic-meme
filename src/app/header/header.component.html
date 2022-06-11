@@ -6,24 +6,28 @@
     padding: 2rem 0rem 2rem 0rem;
     border: 1px solid black;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    
   "
 >
-  <button
-    routerLink="/photos"
-    routerLinkActive="active"
-    color="primary"
-    mat-fab
-    aria-label="Example icon-button with a heart icon"
-  >
-    <mat-icon>photo</mat-icon>
-  </button>
-  <button
-    routerLink="/favorites"
-    routerLinkActive="active"
-    color="primary"
-    mat-fab
-    aria-label="Example icon-button with a heart icon"
-  >
-    <mat-icon>favorite</mat-icon>
-  </button>
+  <div routerLinkActive="active">
+    <button
+      routerLink="/photos"
+      color="primary"
+      mat-fab
+      aria-label="icon-button with a photos icon"
+    >
+      <mat-icon>photo</mat-icon>
+    </button>
+  </div>
+  <div routerLinkActive="active">
+    <button
+      routerLink="/favorites"
+      routerLinkActive="active"
+      color="primary"
+      mat-fab
+      aria-label="icon-button with a heart icon"
+    >
+      <mat-icon>favorite</mat-icon>
+    </button>
+  </div>
 </div>

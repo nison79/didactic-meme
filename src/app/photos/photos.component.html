@@ -1,9 +1,18 @@
-<div style="display: grid; place-items: center; margin: 2rem">
+<div style="display: grid; place-items: center; gap: 1rem; margin: 2rem">
   <mat-spinner [diameter]="30" *ngIf="isLoading"></mat-spinner>
 </div>
 <div *ngIf="photos" class="container">
-  <div *ngFor="let photo of photos">
-    {{ photo.format }}
-    <img [src]="photo" />
+  <div style="padding: 4rem" *ngFor="let photo of photos">
+    <div style="min-width: 100px; position: relative">
+      <button
+        (click)="addFavoritePhoto(photo)"
+        style="position: absolute; right: 10px; top: 10px"
+        mat-fab
+        color="primary"
+      >
+        <mat-icon color="dark">favorite</mat-icon>
+      </button>
+      <img [src]="photo" />
+    </div>
   </div>
 </div>

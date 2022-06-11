@@ -1,3 +1,7 @@
+body {
+  height: 50vh;
+}
+
 .container {
     display: grid; 
     place-items: center;
@@ -10,7 +14,10 @@
    
   }
 
-  img {
-    width:400px;
+  div > img {
+    width: auto;
+    height : auto;
+    max-height: 100%;
+    max-width: 100%;
     object-fit: cover;
 }

@@ -1,1 +1,11 @@
-<p>favorites works!</p>
+<!-- <div style="display: grid; place-items: center; gap: 1rem; margin: 2rem">
+    <mat-spinner [diameter]="30" *ngIf="isLoading"></mat-spinner>
+  </div> -->
+<div class="container">
+  <div style="padding: 4rem" *ngFor="let favorite of favoritesList">
+    <div style="min-width: 100px; position: relative">
+      <img [src]="favorite.photo" />
+      <p>{{ favorite.id }}</p>
+    </div>
+  </div>
+</div>

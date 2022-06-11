@@ -11,6 +11,7 @@ export class PhotosComponent implements OnInit {
   public photos: any;
   public isLoading = false;
   public message = 'Something went wrong!!!';
+  public favoriteArray: any[] = [];
 
   constructor(private service: DataStorageService) {}
 
@@ -32,7 +33,7 @@ export class PhotosComponent implements OnInit {
       },
 
       error: async (error) => {
-        const alert = 2;
+        this.onAlert();
       },
 
       complete: () => {},
@@ -41,5 +42,11 @@ export class PhotosComponent implements OnInit {
   onAlert() {
     alert(this.message);
     this.isLoading = false;
+  }
+
+  addFavoritePhoto(photo: any) {
+    console.log(photo);
+
+    this.service.createFavoritesList(photo);
   }
 }
