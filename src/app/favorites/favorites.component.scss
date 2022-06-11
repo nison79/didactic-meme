@@ -1,0 +1,39 @@
+.container {
+    display: grid; 
+    place-items: center;
+    grid-template-columns:  1fr 1fr 1fr; 
+    grid-template-rows:  1fr 1fr 1fr; 
+    gap: 0px 0px; 
+ 
+   
+  }
+
+  div > img {
+    width: auto;
+    height : auto;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    transform: scale(1);
+    @media only screen and (max-width: 780px) {
+      transform: scale(0.8);
+      right: 0px;
+      top: 0px;
+      }
+
+}
+
+.button-icon {
+  @media only screen and (max-width: 550px) {
+    transform: scale(0.5);
+    right: 0px;
+      top: 0px;
+  
+  }
+}

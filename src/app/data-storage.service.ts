@@ -9,7 +9,12 @@ export class DataStorageService {
   public favorites: { photo?: string; id?: number }[] = [];
 
   public photoUrl: string = '';
+  public singlePhoto: { photo?: string; id?: number } = {};
   constructor(private http: HttpClient) {}
+
+  getSinglePhoto(id: number) {
+    return of(id);
+  }
 
   getFavoritesList() {
     return of(this.favorites);

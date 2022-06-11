@@ -2,10 +2,30 @@
     <mat-spinner [diameter]="30" *ngIf="isLoading"></mat-spinner>
   </div> -->
 <div class="container">
-  <div style="padding: 4rem" *ngFor="let favorite of favoritesList">
-    <div style="min-width: 100px; position: relative">
+  <div
+    style="padding: 4rem; width: 100px"
+    *ngFor="let favorite of favoritesList; trackBy: trackFn"
+  >
+    <div *ngIf="favorite" style="min-width: 200px; position: relative">
+      <button
+        routerLink="/photo:id"
+        (click)="singlePhotoView(favorite)"
+        class="button-icon"
+        mat-fab
+        color="primary"
+      >
+        <mat-icon class="button-icon" style="transform: scale(0.9)" color="dark"
+          >image</mat-icon
+        >
+      </button>
       <img [src]="favorite.photo" />
-      <p>{{ favorite.id }}</p>
     </div>
   </div>
 </div>
+<div style="display: grid; place-items: center; padding: 5rem">
+  <h2 style="letter-spacing: 2px; text-transform: uppercase">
+    No favorites dogs here!!!
+  </h2>
+</div>
+
+<app-single-photo></app-single-photo>

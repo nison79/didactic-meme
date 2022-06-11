@@ -1,16 +1,39 @@
-<div style="display: grid; place-items: center; gap: 1rem; margin: 2rem">
+<div
+  style="
+    display: grid;
+    place-items: center;
+    gap: 1rem;
+    margin: 2rem;
+    width: 100%;
+  "
+>
   <mat-spinner [diameter]="30" *ngIf="isLoading"></mat-spinner>
 </div>
+<div
+  class="fade-in"
+  style="display: grid; place-items: center; gap: 1rem; margin: 0.5rem"
+>
+  <h4
+    class="text-focus-in"
+    style="letter-spacing: 2px"
+    [hidden]="hideMessage"
+    *ngIf="!isLoading"
+  >
+    Click the heart button in order to save your favorite dog
+  </h4>
+</div>
 <div *ngIf="photos" class="container">
-  <div style="padding: 4rem" *ngFor="let photo of photos">
+  <div style="padding: 4rem" *ngFor="let photo of photos; trackBy: trackFn">
     <div style="min-width: 100px; position: relative">
       <button
         (click)="addFavoritePhoto(photo)"
-        style="position: absolute; right: 10px; top: 10px"
+        class="button-icon"
         mat-fab
         color="primary"
       >
-        <mat-icon color="dark">favorite</mat-icon>
+        <mat-icon class="button-icon" style="transform: scale(0.9)" color="dark"
+          >favorite</mat-icon
+        >
       </button>
       <img [src]="photo" />
     </div>

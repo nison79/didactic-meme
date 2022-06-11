@@ -1,1 +1,15 @@
-<p>single-photo works!</p>
+<div class="container">
+  <div *ngIf="singlePhoto">
+    <img [src]="singlePhoto.photo" alt="a dog" />
+  </div>
+  <div>
+    <button
+      (click)="removeFromFavorites()"
+      color="primary"
+      *ngIf="singlePhoto"
+      mat-flat-button
+    >
+      REMOVE FROM FAVORITES
+    </button>
+  </div>
+</div>

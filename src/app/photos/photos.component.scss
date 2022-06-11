@@ -5,12 +5,10 @@ body {
 .container {
     display: grid; 
     place-items: center;
-    grid-template-columns:  1fr 1fr; 
-    grid-template-rows:  1fr 1fr; 
+    grid-template-columns:  1fr 1fr 1fr; 
+    grid-template-rows:  1fr 1fr 1fr; 
     gap: 0px 0px; 
-    grid-template-areas: 
-      ". ."
-      ". ."
+ 
    
   }
 
@@ -21,3 +19,83 @@ body {
     max-width: 100%;
     object-fit: cover;
 }
+
+button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    transform: scale(1);
+    @media only screen and (max-width: 780px) {
+      transform: scale(0.8);
+      right: 0px;
+      top: 0px;
+      }
+
+}
+
+.button-icon {
+  @media only screen and (max-width: 550px) {
+    transform: scale(0.5);
+    right: 0px;
+      top: 0px;
+  
+  }
+}
+
+.fade-in {
+	-webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+
+
+ @-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.text-focus-in {
+	-webkit-animation: text-focus-in 1.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: text-focus-in 1.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+ @-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+
+
+

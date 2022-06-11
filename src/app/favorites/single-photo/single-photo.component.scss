@@ -1,0 +1,17 @@
+.container {
+    display: grid; 
+    place-items: center;
+    grid-template-columns:  1fr ; 
+    grid-template-rows:  1fr; 
+    gap: 0px 0px; 
+ 
+   
+  }
+
+  div > img {
+    width: auto;
+    height : auto;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}

@@ -12,6 +12,7 @@ export class PhotosComponent implements OnInit {
   public isLoading = false;
   public message = 'Something went wrong!!!';
   public favoriteArray: any[] = [];
+  public hideMessage: boolean = false;
 
   constructor(private service: DataStorageService) {}
 
@@ -48,5 +49,10 @@ export class PhotosComponent implements OnInit {
     console.log(photo);
 
     this.service.createFavoritesList(photo);
+    this.hideMessage = true;
+  }
+
+  trackFn(photo: any) {
+    return photo.id;
   }
 }

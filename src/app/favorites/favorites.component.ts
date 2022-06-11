@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { map, Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+import { map, of, Subscription } from 'rxjs';
 import { DataStorageService } from '../data-storage.service';
 
 @Component({
@@ -9,12 +10,24 @@ import { DataStorageService } from '../data-storage.service';
 })
 export class FavoritesComponent implements OnInit {
   favoritesList: any;
-  constructor(private service: DataStorageService) {}
+  singlePhoto: any;
+  constructor(private service: DataStorageService, private router: Router) {}
 
   ngOnInit(): void {
     this.service
       .getFavoritesList()
 
       .subscribe((data) => (this.favoritesList = data));
+  }
+
+  singlePhotoView(favorite: any) {
+    of(favorite).subscribe((data) => (this.singlePhoto = data));
+    console.log(this.singlePhoto);
+
+    this.router.navigate(['/photos', favorite.id]);
+  }
+
+  trackFn(photo: any) {
+    return photo.id;
   }
 }
