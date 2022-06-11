@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AnimationOptions } from 'ngx-lottie';
+import { AnimationOptions, LottieTransferState } from 'ngx-lottie';
 import { map, of, Subscription } from 'rxjs';
 import { DataStorageService } from '../data-storage.service';
 
@@ -12,6 +12,9 @@ import { DataStorageService } from '../data-storage.service';
 export class FavoritesComponent implements OnInit {
   favoritesList: any;
   singlePhoto: any;
+  uniqueFavoritesList: any;
+  id: any;
+
   public animationPlaying: boolean = false;
   public animationDogInstance: any;
   animationDogOptions: AnimationOptions = {
@@ -39,9 +42,17 @@ export class FavoritesComponent implements OnInit {
     this.router.navigate(['/photos', favorite.id]);
   }
 
+  setNewFavoritesArray(value: any) {
+    console.log(value);
+
+    this.favoritesList = value;
+  }
+
   trackFn(photo: any) {
     return photo.id;
   }
+
+  // ? Lottie functions
 
   animationCreated(ev: any) {
     this.animationDogInstance = ev;

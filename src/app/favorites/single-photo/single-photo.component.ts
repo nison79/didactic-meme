@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataStorageService } from 'src/app/data-storage.service';
 
@@ -8,6 +8,8 @@ import { DataStorageService } from 'src/app/data-storage.service';
   styleUrls: ['./single-photo.component.scss'],
 })
 export class SinglePhotoComponent implements OnInit {
+  @Output() removeItemEvent = new EventEmitter<any>();
+
   public favoritesList: any;
   public paramsSubscription: any;
   public id: any;
@@ -27,9 +29,9 @@ export class SinglePhotoComponent implements OnInit {
 
       // (+) converts string 'id' to a number
     });
+
     this.service
       .getFavoritesList()
-
       .subscribe((data) => (this.favoritesList = data));
     this.singlePhoto = this.favoritesList.find(
       (item: any) => item.id === this.id
@@ -37,11 +39,11 @@ export class SinglePhotoComponent implements OnInit {
     console.log(this.singlePhoto);
   }
 
-  removeFromFavorites() {
+  onRemovePhoto(id: any) {
+    console.log(id);
+    const newList = this.favoritesList.filter((photo: any) => photo.id !== id);
+    console.log(newList);
+    this.removeItemEvent.emit(newList);
     this.router.navigate(['/favorites']);
-    // this.filteredFavoritesList = this.favoritesList.filter(
-    //   (item: any) => item.id !== this.id
-    // );
-    console.log(this.filteredFavoritesList);
   }
 }

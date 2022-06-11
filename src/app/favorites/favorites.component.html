@@ -43,4 +43,6 @@
   </div>
 </div>
 
-<app-single-photo></app-single-photo>
+<app-single-photo
+  (removeItemEvent)="setNewFavoritesArray($event)"
+></app-single-photo>
