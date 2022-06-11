@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AnimationOptions } from 'ngx-lottie';
 import { map, of, Subscription } from 'rxjs';
 import { DataStorageService } from '../data-storage.service';
 
@@ -11,9 +12,20 @@ import { DataStorageService } from '../data-storage.service';
 export class FavoritesComponent implements OnInit {
   favoritesList: any;
   singlePhoto: any;
-  constructor(private service: DataStorageService, private router: Router) {}
+  public animationPlaying: boolean = false;
+  public animationDogInstance: any;
+  animationDogOptions: AnimationOptions = {
+    path: 'https://assets1.lottiefiles.com/private_files/lf30_kbu3mkpv.json',
+  };
+
+  constructor(
+    private service: DataStorageService,
+    private router: Router,
+    private changeDetector: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
+    this.animationPlaying = true;
     this.service
       .getFavoritesList()
 
@@ -29,5 +41,29 @@ export class FavoritesComponent implements OnInit {
 
   trackFn(photo: any) {
     return photo.id;
+  }
+
+  animationCreated(ev: any) {
+    this.animationDogInstance = ev;
+  }
+
+  startPlaying() {
+    this.animationPlaying = true;
+    this.animationDogInstance.setSpeed(1.2);
+
+    // setTimeout(() => {
+    //   this.animationDogInstance.setSpeed(0);
+    // }, 1000);
+  }
+
+  animationLoopCompleted(ev: any) {
+    // this.animationDeliveryManagerInstance.stop();
+    // this.animationPlaying = false;
+
+    this.changeDetector.detectChanges();
+  }
+
+  animationError(ev: any) {
+    //this.animationPlaying = false;
   }
 }

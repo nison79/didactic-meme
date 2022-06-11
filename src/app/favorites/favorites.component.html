@@ -22,10 +22,25 @@
     </div>
   </div>
 </div>
-<div style="display: grid; place-items: center; padding: 5rem">
+<div
+  *ngIf="favoritesList && !favoritesList.length"
+  style="display: grid; place-items: center; padding: 5rem"
+>
   <h2 style="letter-spacing: 2px; text-transform: uppercase">
     No favorites dogs here!!!
   </h2>
+  <div style="width: 400px">
+    <ng-lottie
+      *ngIf="animationPlaying"
+      (domLoaded)="startPlaying()"
+      (animationCreated)="animationCreated($event)"
+      (loopComplete)="animationLoopCompleted($event)"
+      (error)="animationError($event)"
+      style="z-index: 100"
+      [options]="animationDogOptions"
+    >
+    </ng-lottie>
+  </div>
 </div>
 
 <app-single-photo></app-single-photo>

@@ -16,6 +16,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
+
+export function playerFactory() {
+  return player;
+}
 
 @NgModule({
   declarations: [
@@ -34,6 +40,7 @@ import { environment } from '../environments/environment';
     MatButtonModule,
     MatIconModule,
     MatProgressSpinnerModule,
+    LottieModule.forRoot({ player: playerFactory }),
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
