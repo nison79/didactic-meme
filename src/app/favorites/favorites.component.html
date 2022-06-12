@@ -3,7 +3,7 @@
   </div> -->
 <div class="container">
   <div
-    style="padding: 4rem; width: 100px"
+    style="padding: 4rem; width: 70%"
     *ngFor="let favorite of favoritesList; trackBy: trackFn"
   >
     <div *ngIf="favorite" style="min-width: 200px; position: relative">
@@ -26,8 +26,8 @@
   *ngIf="favoritesList && !favoritesList.length"
   style="display: grid; place-items: center; padding: 5rem"
 >
-  <h2 style="letter-spacing: 2px; text-transform: uppercase">
-    No favorites dogs here!!!
+  <h2 style="letter-spacing: 2px; text-transform: uppercase; font-weight: 200">
+    No favorites dogs here!!! Come on give us some love...
   </h2>
   <div style="width: 400px">
     <ng-lottie
