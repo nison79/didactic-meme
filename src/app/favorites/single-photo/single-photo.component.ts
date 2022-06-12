@@ -30,6 +30,7 @@ export class SinglePhotoComponent implements OnInit {
       // (+) converts string 'id' to a number
     });
 
+    // ? find the photo in list by id
     this.service
       .getFavoritesList()
       .subscribe((data) => (this.favoritesList = data));
