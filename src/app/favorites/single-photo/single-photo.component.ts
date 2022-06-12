@@ -26,8 +26,6 @@ export class SinglePhotoComponent implements OnInit {
     this.paramsSubscription = this.route.params.subscribe((params) => {
       this.id = +params['id'];
       console.log(this.id);
-
-      // (+) converts string 'id' to a number
     });
 
     // ? find the photo in list by id
@@ -42,9 +40,12 @@ export class SinglePhotoComponent implements OnInit {
 
   onRemovePhoto(id: any) {
     console.log(id);
-    const newList = this.favoritesList.filter((photo: any) => photo.id !== id);
-    console.log(newList);
-    this.removeItemEvent.emit(newList);
+    this.favoritesList = this.favoritesList.filter(
+      (photo: any) => photo.id !== id
+    );
+    console.log(this.favoritesList);
+    // ! not emmiting the data to parent favorite
+    this.removeItemEvent.emit(this.favoritesList);
     this.router.navigate(['/favorites']);
   }
 }

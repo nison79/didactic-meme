@@ -1,13 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { delay, Observable, of, retry, Subject, tap } from 'rxjs';
+import { delay, of, retry, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataStorageService {
   public favorites: { photo?: string; id?: number }[] = [];
-  private subject = new Subject<any>();
   public photoUrl: string = '';
   public singlePhoto: { photo?: string; id?: number } = {};
 
@@ -28,9 +27,8 @@ export class DataStorageService {
     console.log(this.favorites);
   }
 
+  // ? Fetch photo from the api
 
- // ? Fetch photo from the api
- 
   fetchPhotos() {
     return this.http
       .get('https://dog.ceo/api/breed/mix/images')

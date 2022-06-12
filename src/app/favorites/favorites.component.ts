@@ -42,10 +42,11 @@ export class FavoritesComponent implements OnInit {
     this.router.navigate(['/photos', favorite.id]);
   }
 
-  setNewFavoritesArray(value: any) {
-    console.log(value);
+  public setNewFavoritesArray(event: any) {
+    //! not getting the emmited value here
+    console.log(event);
 
-    this.favoritesList = value;
+    this.favoritesList = event;
   }
 
   trackFn(photo: any) {
