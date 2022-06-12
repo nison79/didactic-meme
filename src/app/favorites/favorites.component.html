@@ -4,11 +4,11 @@
 <div class="container">
   <div
     style="padding: 4rem; width: 100px"
-    *ngFor="let favorite of favoritesList; trackBy: trackFn"
+    *ngFor="let favorite of favorites; trackBy: trackFn"
   >
     <div *ngIf="favorite" style="min-width: 200px; position: relative">
+      <!-- routerLink="/photo:id" -->
       <button
-        routerLink="/photo:id"
         (click)="singlePhotoView(favorite)"
         class="button-icon"
         mat-fab
@@ -18,18 +18,19 @@
           >image</mat-icon
         >
       </button>
-      <img [src]="favorite.photo" />
+      <img [src]="favorite.photoUrl" />
     </div>
   </div>
 </div>
 <div
-  *ngIf="favoritesList && !favoritesList.length"
+  *ngIf="favorites && !favorites.length"
   style="display: grid; place-items: center; padding: 5rem"
 >
   <h2 style="letter-spacing: 2px; text-transform: uppercase">
     No favorites dogs here!!!
+    Come on give some love...
   </h2>
-  <div style="width: 400px">
+  <div style="width: 300px">
     <ng-lottie
       *ngIf="animationPlaying"
       (domLoaded)="startPlaying()"
@@ -43,6 +44,4 @@
   </div>
 </div>
 
-<app-single-photo
-  (removeItemEvent)="setNewFavoritesArray($event)"
-></app-single-photo>
+<!-- <app-single-photo [favorite]="favorite"></app-single-photo> -->

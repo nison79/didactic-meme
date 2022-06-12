@@ -22,6 +22,7 @@
     "@angular/router": "~13.0.0",
     "@ngrx/store": "^13.2.0",
     "@ngrx/store-devtools": "^13.2.0",
+    "lodash": "^4.17.21",
     "lottie-web": "^5.9.4",
     "ngx-lottie": "^8.2.0",
     "rxjs": "~7.4.0",

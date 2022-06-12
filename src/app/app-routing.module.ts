@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'photos/:id',
     component: SinglePhotoComponent,
   },
+  {
+    path: 'single-photo',
+    component: SinglePhotoComponent,
+  },
 ];
 
 @NgModule({

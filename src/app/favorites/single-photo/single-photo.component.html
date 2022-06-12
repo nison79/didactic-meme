@@ -1,10 +1,11 @@
 <div class="container">
   <div *ngIf="singlePhoto">
-    <img [src]="singlePhoto.photo" alt="a dog" />
+    <img [src]="singlePhoto?.photoUrl" alt="a dog" />
   </div>
+  <p>{{ singlePhoto?.id }}</p>
   <div style="padding: 2rem">
     <button
-      (click)="onRemovePhoto(singlePhoto.id)"
+      (click)="onRemoveFromFavorites()"
       color="primary"
       *ngIf="singlePhoto"
       mat-flat-button
